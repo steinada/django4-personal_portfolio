@@ -10,10 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-$2#_9u5flj)jwq_41zzzd7-jlhpq+z0u-t4$-w!5_cb^^)_9k_"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['steinadaaa.pythonanywhere.com']
 
 
 # Application definition
@@ -78,7 +79,7 @@ WSGI_APPLICATION = "personal_portfolio.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -111,18 +112,30 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_L10N = True
 
+USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+
+if(DEBUG==True):
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
+    STATICFILES_DIRS=[
+         os.path.join(BASE_DIR,'static')
+    ]
+    STATIC_ROOT='/home/SteinAdaaa/django4-personal_portfolio/static'
+    MEDIA_ROOT='/home/SteinAdaaa/django4-personal_portfolio/media'
+else:
+    STATIC_URL = '/static/'
+    MEDIA_URL='/media/'
+    STATIC_ROOT=os.path.join(BASE_DIR,'static')
+    MEDIA_ROOT=os.path.join(BASE_DIR,'media')
