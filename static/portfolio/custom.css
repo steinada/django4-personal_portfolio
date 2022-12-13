@@ -1,0 +1,66 @@
+.col-md-10 a{
+    color: #1ca373;
+}
+
+.text-center.mt-5 {
+    color: #18685b;
+}
+.navbar-nav .nav-link {
+    color: rgba(0,0,0,1) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(0,0,0,.5) !important;
+}
+
+body {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    background: #f1defd;
+}
+
+.project-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#blogtitle {
+    font-size: 6rem;
+}
+
+.img-fluid.an {
+    border-radius: 30px !important;
+}
+
+.hover-image-scale {
+  border-radius: 30px !important;
+  display: inline-block !important;
+  overflow: hidden !important;
+}
+img.hover-image-scale  {
+  border-radius: 30px !important;
+  transition: 1s !important;
+  display: block !important;
+}
+.hover-image-scale img:hover {
+  transform: scale(1.2) !important;
+}
+
+img.hover-image-scale {
+    object-fit: cover;
+    width: 350px;
+    height: 195px;
+}
+
+@media (min-width: 992px) {
+    .title_text {
+        font-size: 40px !important;
+    }
+    #blogdetailtitle {
+        font-size: 5rem !important;
+    }
+}
+
+.btn.btn-primary.btn-blog {
+    background: #1ca373;
+    border-color: #1ca373;
+}
+
