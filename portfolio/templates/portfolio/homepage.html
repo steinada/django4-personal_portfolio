@@ -1,0 +1,42 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row justify-content-center my-3">
+  <div class="col-5">
+    <img src="{% static 'portfolio/photo_2022-12-12_15-31-24.jpg' %}" class="img-fluid an">
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3" >
+  <div class="col-md-9 text-center">
+      <h1 class="title_text">I am a starting web developer and software tester. Now looking for a job. You can see my works below</h1>
+  </div>
+</div>
+
+<h2 class="mt-5">Blogs</h2>
+<hr>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+
+        {% if project.url %}
+        <div class="hover-image-scale">
+        <a href="{{project.url}}">
+            <img src="{{ project.image.url }}" class="hover-image-scale">
+    </a>
+    </div>
+    {% else %}
+
+    <div class="hover-image-scale">
+        <img src="{{ project.image.url }}" alt="" class="hover-image-scale">
+    </div>
+    {% endif %}
+    <h3 class="project-title">{{ project.title }}</h3>
+    <p class="project-title">{{ project.description }}</p>
+    </div>
+
+{% endfor %}
+</div>
+{% endblock %}
